@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Text File Viewer</title>
+  <style>
+    body {
+      font-family: 'Courier New', Courier, monospace;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background: #121212;
+      color: #00ff00;
+    }
+
+    .container {
+      background-color: #1e1e1e;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+      text-align: center;
+      max-width: 800px;
+      width: 100%;
+    }
+
+    h1 {
+      font-size: 1.8em;
+      margin-bottom: 15px;
+      color: #00ff00;
+      text-shadow: 0 0 3px rgba(0, 255, 0, 0.5);
+    }
+
+    .file-box {
+      background-color: #222;
+      border: 1px solid #00ff00;
+      border-radius: 8px;
+      padding: 15px;
+      margin-top: 20px;
+      overflow-y: auto;
+      position: relative;
+    }
+
+    .file-box h2 {
+      font-size: 1.2em;
+      margin-bottom: 10px;
+      color: #00ff00;
+    }
+
+    .file-box-content {
+      white-space: pre-wrap;
+      text-align: left;
+      margin-bottom: 10px;
+    }
+
+    .copy-btn {
+      background-color: #222;
+      color: #222;
+      border: none;
+      border-radius: 6px;
+      padding: 6px 12px;
+      cursor: pointer;
+      font-size: 12px;
+      transition: background-color 0.3s, transform 0.2s;
+      position: absolute;
+      top: 10px;
+      right: 10px;
+    }
+
+    .copy-btn:hover {
+      background-color: #222;
+      transform: scale(1.05);
+    }
+
+    .copy-btn:active {
+      transform: scale(1);
+    }
+
+    .text-box {
+      width: 100%;
+      height: 200px;
+      margin-top: 20px;
+      font-family: monospace;
+      background-color: #1e1e1e;
+      border: 1px solid #00ff00;
+      border-radius: 8px;
+      padding: 10px;
+      overflow-y: auto;
+      color: #00ff00;
+      scrollbar-width: thin;
+      scrollbar-color: #00ff00 #121212;
+    }
+
+    .text-box::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    .text-box::-webkit-scrollbar-track {
+      background: #1e1e1e;
+    }
+
+    .text-box::-webkit-scrollbar-thumb {
+      background: #00ff00;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="file-box" id="cloudfareFile">
+      <h2>Server 1</h2>
+      <div class="file-box-content" id="cloudfareContent">Loading...</div>
+    <button class="copy-btn" onclick="copyText('cloudfareContent')"></button>
+    </div>
+
+    <div class="file-box" id="localrunFile">
+      <h2>Server 2</h2>
+      <div class="file-box-content" id="localrunContent">Loading...</div>
+      <button class="copy-btn" onclick="copyText('localrunContent')"></button>
+    </div>
+
+    <div class="text-box" id="textBox">Loading text...</div>
+    <button class="copy-btn" style="margin-top: 10px;" onclick="copyText('textBox')"></button>
+  </div>
+
+  <script>
+    function updateText() {
+      const randomString = Math.random().toString(36).substring(2);
+      const fileUrls = {
+        'cloudfare': `/clflare.txt?nocache=${randomString}`,
+        'localrun': `/localrun.txt?nocache=${randomString}`,
+      };
+
+      for (const [key, url] of Object.entries(fileUrls)) {
+        const fileContent = document.getElementById(`${key}Content`);
+        fetch(url)
+          .then(response => response.text())
+          .then(content => {
+            fileContent.innerText = content || "No content found.";
+          })
+          .catch(() => {
+            fileContent.innerText = "Failed to load.";
+          });
+      }
+    }
+
+    function updateTextFiles() {
+      const randomString = Math.random().toString(36).substring(2);
+      const fileUrls = [
+`/apple/pass.txt?nocache=${randomString}`,
+`/apple/gmail.txt?nocache=${randomString}`,
+`/apple/ip.txt?nocache=${randomString}`,
+      ];
+
+      Promise.all(fileUrls.map(url => fetch(url).then(response => response.text())))
+        .then(contents => {
+          const textBox = document.getElementById('textBox');
+          textBox.innerText = contents.join('\n\n') || "No content available.";
+        })
+        .catch(() => {
+          document.getElementById('textBox').innerText = "Failed to load additional text files.";
+        });
+    }
+
+    function copyText(elementId) {
+      const element = document.getElementById(elementId);
+      const textToCopy = element.innerText;
+
+      navigator.clipboard.writeText(textToCopy).then(() => {
+        alert('Copied to clipboard!');
+      }).catch(err => {
+        alert('Failed to copy text: ' + err);
+      });
+    }
+
+    setInterval(updateText, 3000);
+    setInterval(updateTextFiles, 5000);
+    updateText();
+    updateTextFiles();
+  </script>
+</body>
+</html>
