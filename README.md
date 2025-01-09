@@ -164,7 +164,7 @@ __EXIT__ :
 </p>
 
 <p align="center">
-<a href="https://bit.ly/ourdltdvideos"><img width="80%" title="Hacklock" src="https://private-user-images.githubusercontent.com/49580304/401456174-079eaa53-365f-4706-b8c4-a1736bbbe5ca.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MzY0MTIxNjksIm5iZiI6MTczNjQxMTg2OSwicGF0aCI6Ii80OTU4MDMwNC80MDE0NTYxNzQtMDc5ZWFhNTMtMzY1Zi00NzA2LWI4YzQtYTE3MzZiYmJlNWNhLnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNTAxMDklMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjUwMTA5VDA4Mzc0OVomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPThmMDc1N2FlNzFmZjhjZmRmZTBiYmEwMGY2ODhjODRmNDg1Zjk4ZGI1NjFjMDEyZjVhNTM3NGY1YmU2NGNjYzEmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.GfX5uXUad7Vv4-_5qBYQEn8xf4NnQUFDTIT4Nh2qxik"></a>
+<a href="https://bit.ly/ourdltdvideos"><img width="80%" title="Hacklock" src="https://private-user-images.githubusercontent.com/49580304/401456174-079eaa53-365f-4706-b8c4-a1736bbbe5ca.png"></a>
 
 
 <!---SUB HEADING--->
