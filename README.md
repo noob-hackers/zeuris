@@ -164,7 +164,7 @@ __EXIT__ :
 </p>
 
 <p align="center">
-<a href="https://bit.ly/ourdltdvideos"><img width="80%" title="Hacklock" src="https://private-user-images.githubusercontent.com/49580304/401456174-079eaa53-365f-4706-b8c4-a1736bbbe5ca.png"></a>
+<a href="https://bit.ly/ourdltdvideos"><img width="80%" title="Hacklock" src="https://github.com/user-attachments/assets/1efcb138-cd2f-458a-949c-3c59e654cde8"></a>
 
 
 <!---SUB HEADING--->
