@@ -46,7 +46,6 @@ check_and_install_once() {
   INSTALL_CMDS=(
     "pkg install php -y"
     "pkg install cloudflared -y"
-    "pkg install xdg-utils -y"
     "pkg install git -y"
     "pkg install curl -y"
     "pkg install openssh -y"
