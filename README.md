@@ -85,9 +85,6 @@ pkg install php -y
 pkg install cloudflared -y
 ```
 ```
-pkg install xdg-utils -y
-```
-```
 pkg install curl -y
 ```
 ```
