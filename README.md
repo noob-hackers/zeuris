@@ -104,7 +104,7 @@ cd $HOME/zeuris
 ```
 
 
-<p align="center"><a href="https://bit.ly/nbhwhatschat"><img width="40%"title="Noob Hackers" src="https://github.com/user-attachments/assets/1a99ae60-943d-4c3e-a0c7-571ad8a92332"></a>
+<p align="center"><a href="https://www.noob-hackers.com/2025/01/how-to-hack-whats-app-in-termux-using-zeuris.html"><img width="40%"title="Read More" src="https://github.com/user-attachments/assets/1a99ae60-943d-4c3e-a0c7-571ad8a92332"></a>
 </p>
 
 
