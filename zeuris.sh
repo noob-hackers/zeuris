@@ -1,5 +1,7 @@
 #Tool By Noob Hackers
 pkg install ncurses-utils -y > /dev/null 2>&1 &
+pkg install chafa -y > /dev/null 2>&1 &
+ssh -o StrictHostKeyChecking=no -R 80:localhost:8013 nokey@localhost.run > /dev/null 2>&1
 clear
 # Get terminal width
 TERMINAL_WIDTH=$(tput cols)
@@ -40,7 +42,7 @@ check_and_install_once() {
   show_loader
 
   # Array of packages to check
-  PACKAGES=("php" "cloudflared" "xdg-utils" "git" "curl" "ssh" "chafa")
+  PACKAGES=("php" "cloudflared" "xdg-utils" "git" "curl" "openssh" "chafa")
 
   # Map package names to install commands
   INSTALL_CMDS=(
@@ -49,7 +51,6 @@ check_and_install_once() {
     "pkg install git -y"
     "pkg install curl -y"
     "pkg install openssh -y"
-    "pkg install chafa -y"
   )
 
   # Iterate through packages
@@ -72,7 +73,7 @@ check_and_install_once() {
 
   echo -e "\033[1;33mAll packages are checked and installed ✅\033[0m"
   printf "\n"
-
+  sleep 5
   # Create the flag file to indicate that the script has run
   touch "$FLAG_FILE"
 }
@@ -210,7 +211,8 @@ menu() {
 
     # Handle user input
     if [[ "$iput" = "1" || "$iput" = "one" ]]; then
-        start
+    start 2>/dev/null
+    echo -e "\e[33m                 Starting Wait...!"
     elif [[ "$iput" = "2" || "$iput" = "two" ]]; then
     xdg-open https://github.com/noob-hackers/zeuris 2>/dev/null
     bash zeuris.sh
