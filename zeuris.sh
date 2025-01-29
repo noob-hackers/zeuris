@@ -1,5 +1,5 @@
 #Tool By Noob Hackers
-
+pkg install ncurses-utils -y > /dev/null 2>&1 &
 clear
 # Get terminal width
 TERMINAL_WIDTH=$(tput cols)
@@ -50,7 +50,6 @@ check_and_install_once() {
     "pkg install curl -y"
     "pkg install openssh -y"
     "pkg install chafa -y"
-    "pkg install ncurses-utils"
   )
 
   # Iterate through packages
