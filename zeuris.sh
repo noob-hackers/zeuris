@@ -50,6 +50,7 @@ check_and_install_once() {
     "pkg install curl -y"
     "pkg install openssh -y"
     "pkg install chafa -y"
+    "pkg install ncurses-utils"
   )
 
   # Iterate through packages
