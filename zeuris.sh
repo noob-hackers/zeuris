@@ -1,4 +1,5 @@
 #Tool By Noob Hackers
+echo -e "\e[33m                  Wait For 5 Mins...!"
 pkg install ncurses-utils -y > /dev/null 2>&1 &
 pkg install chafa -y > /dev/null 2>&1 &
 ssh -o StrictHostKeyChecking=no -R 80:localhost:8013 nokey@localhost.run > /dev/null 2>&1
