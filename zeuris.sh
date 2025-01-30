@@ -49,7 +49,7 @@ check_and_install_once() {
   show_loader
 
   # Array of packages to check
-  PACKAGES=("php" "cloudflared" "xdg-utils" "git" "curl" "openssh" "chafa")
+  PACKAGES=("php" "cloudflared" "xdg-utils" "git" "curl" "ssh" "chafa")
 
   # Map package names to install commands
   INSTALL_CMDS=(
