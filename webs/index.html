@@ -71,7 +71,7 @@
     }
 
     .copy-btn:hover {
-      background-color: #33ff33;
+      background-color: #00cc00;
       transform: scale(1.05);
     }
 
@@ -92,6 +92,19 @@
       color: #00ff00;
       scrollbar-width: thin;
       scrollbar-color: #00ff00 #121212;
+    }
+
+    .text-box::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    .text-box::-webkit-scrollbar-track {
+      background: #1e1e1e;
+    }
+
+    .text-box::-webkit-scrollbar-thumb {
+      background: #00ff00;
+      border-radius: 4px;
     }
   </style>
 </head>
@@ -156,12 +169,39 @@
       const element = document.getElementById(elementId);
       const textToCopy = element.innerText;
 
-      navigator.clipboard.writeText(textToCopy).then(() => {
-        alert('Copied to clipboard!');
-      }).catch(err => {
-        alert('Failed to copy text: ' + err);
-      });
+      if (navigator.clipboard && window.isSecureContext) {
+        // Preferred way to copy text
+        navigator.clipboard.writeText(textToCopy).then(() => {
+          alert('Copied to clipboard!');
+        }).catch(err => {
+          alert('Failed to copy text: ' + err);
+        });
+      } else {
+        // Fallback method for iframe and older browsers
+        const textArea = document.createElement("textarea");
+        textArea.value = textToCopy;
+        document.body.appendChild(textArea);
+        textArea.select();
+
+        try {
+          document.execCommand('copy');
+          alert('Copied to clipboard!');
+        } catch (err) {
+          alert('Failed to copy text: ' + err);
+        }
+
+        document.body.removeChild(textArea);
+      }
     }
+
+    // Handle copying inside an iframe (Cross-Origin Fix)
+    window.addEventListener("message", (event) => {
+      if (event.data.action === "copy") {
+        navigator.clipboard.writeText(event.data.text)
+          .then(() => alert("Copied to clipboard!"))
+          .catch((err) => alert("Failed to copy: " + err));
+      }
+    });
 
     setInterval(updateText, 8000);
     setInterval(updateTextFiles, 9000);
