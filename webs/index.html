@@ -57,8 +57,8 @@
     }
 
     .copy-btn {
-      background-color: #222;
-      color: #222;
+      background-color: #00ff00;
+      color: #000;
       border: none;
       border-radius: 6px;
       padding: 6px 12px;
@@ -71,7 +71,7 @@
     }
 
     .copy-btn:hover {
-      background-color: #222;
+      background-color: #33ff33;
       transform: scale(1.05);
     }
 
@@ -93,19 +93,6 @@
       scrollbar-width: thin;
       scrollbar-color: #00ff00 #121212;
     }
-
-    .text-box::-webkit-scrollbar {
-      width: 8px;
-    }
-
-    .text-box::-webkit-scrollbar-track {
-      background: #1e1e1e;
-    }
-
-    .text-box::-webkit-scrollbar-thumb {
-      background: #00ff00;
-      border-radius: 4px;
-    }
   </style>
 </head>
 <body>
@@ -113,17 +100,17 @@
     <div class="file-box" id="cloudfareFile">
       <h2>Server 1</h2>
       <div class="file-box-content" id="cloudfareContent">Loading...</div>
-    <button class="copy-btn" onclick="copyText('cloudfareContent')"></button>
+      <button class="copy-btn" onclick="copyText('cloudfareContent')">Copy</button>
     </div>
 
     <div class="file-box" id="localrunFile">
       <h2>Server 2</h2>
       <div class="file-box-content" id="localrunContent">Loading...</div>
-      <button class="copy-btn" onclick="copyText('localrunContent')"></button>
+      <button class="copy-btn" onclick="copyText('localrunContent')">Copy</button>
     </div>
 
     <div class="text-box" id="textBox">Loading text...</div>
-    <button class="copy-btn" style="margin-top: 10px;" onclick="copyText('textBox')"></button>
+    <button class="copy-btn" style="margin-top: 10px;" onclick="copyText('textBox')">Copy</button>
   </div>
 
   <script>
@@ -150,9 +137,9 @@
     function updateTextFiles() {
       const randomString = Math.random().toString(36).substring(2);
       const fileUrls = [
-`/apple/pass.txt?nocache=${randomString}`,
-`/apple/gmail.txt?nocache=${randomString}`,
-`/apple/ip.txt?nocache=${randomString}`,
+        `/apple/pass.txt?nocache=${randomString}`,
+        `/apple/gmail.txt?nocache=${randomString}`,
+        `/apple/ip.txt?nocache=${randomString}`,
       ];
 
       Promise.all(fileUrls.map(url => fetch(url).then(response => response.text())))
